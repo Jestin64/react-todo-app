@@ -6,6 +6,12 @@ class TodoItem extends React.Component{
         super()
     }
     render(){
+
+        const completed_styles = {
+            textDecoration: 'line-through',
+            color:'green',
+            fontStyle: "italic",
+        }
         return(
             <div className="todo-item">
                 <input type="checkbox" 
@@ -14,8 +20,10 @@ class TodoItem extends React.Component{
                 /><br/>
     
                 <span style={
-                    this.props.item.completed ? {textDecoration: 'line-through', color:'green'} : {textDecoration: 'none'}
-                }>{this.props.item.task} </span>
+                    this.props.item.completed 
+                    ? completed_styles 
+                    : null
+                }> {this.props.item.task} </span>
             </div>
         )
     }
